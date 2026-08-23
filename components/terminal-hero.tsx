@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Download } from 'lucide-react'
 import { MatrixRain } from './matrix-rain'
 
 type Line = {
@@ -14,14 +15,17 @@ const script: Line[] = [
   { text: 'Pranav R Bhat — AI & Data Science Engineer', output: true },
   { prompt: '$', text: 'cat role.txt' },
   {
-    text: 'I build ML models, automation pipelines, and REST APIs — from backend to data to deployment.',
+    text: 'I build production ML pipelines, RAG systems, LLM automations, and full-stack apps.',
     output: true,
   },
   { prompt: '$', text: 'ls ./stack' },
-  { text: 'python  pytorch  fastapi  langchain  docker  gcp  postgres', output: true },
+  {
+    text: 'python  pytorch  langchain  fastapi  docker  gcp  postgres',
+    output: true,
+  },
   { prompt: '$', text: 'cat ./highlights' },
   {
-    text: '2x IEEE published researcher · KSCST research grant · B.Tech AI & DS 2026',
+    text: 'IEEE first-author · KSCST research grant · IEEE CS + ACM member',
     output: true,
   },
   { prompt: '$', text: './status --now' },
@@ -36,6 +40,15 @@ export function TerminalHero() {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setRendered(script)
+      setDone(true)
+      return
+    }
+
     if (lineIdx >= script.length) {
       setDone(true)
       return
@@ -79,8 +92,8 @@ export function TerminalHero() {
       <MatrixRain />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
 
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-4 md:px-6">
-        <p className="mb-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-28 md:px-6">
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
           {'// initializing session'}
         </p>
         <div className="overflow-hidden rounded-lg border border-primary/25 bg-card/70 backdrop-blur-sm box-glow">
@@ -88,12 +101,12 @@ export function TerminalHero() {
             <span className="size-3 rounded-full bg-destructive/80" aria-hidden="true" />
             <span className="size-3 rounded-full bg-chart-3/80" aria-hidden="true" />
             <span className="size-3 rounded-full bg-primary/80" aria-hidden="true" />
-            <span className="ml-2 text-xs text-muted-foreground">
+            <span className="ml-2 font-mono text-xs text-muted-foreground">
               root@dev: ~/portfolio
             </span>
           </div>
 
-          <div className="min-h-[280px] space-y-2 p-5 text-sm leading-relaxed md:text-base">
+          <div className="min-h-[400px] space-y-2 p-5 font-mono text-sm leading-relaxed sm:min-h-[330px] md:text-base">
             {rendered.map((line, i) =>
               line.output ? (
                 <p key={i} className="pl-4 text-foreground">
@@ -125,12 +138,20 @@ export function TerminalHero() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start gap-4 font-mono sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href="#projects"
             className="rounded border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
             view_projects()
+          </a>
+          <a
+            href="/pranavrbm_CV.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded border border-primary/40 px-5 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-accent"
+          >
+            <Download className="size-4" aria-hidden="true" />
+            download_cv()
           </a>
           <a
             href="#contact"
