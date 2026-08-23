@@ -72,9 +72,17 @@ export function ExperienceSection() {
       id="experience"
       className="mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6"
     >
-      <SectionHeading index="04" title="experience" />
-      <Reveal>
-        <ol className="relative border-l border-border pl-6 md:pl-8">
+      <div className="grid gap-12 md:grid-cols-[300px_1fr]">
+        <div className="self-start md:sticky md:top-28">
+          <SectionHeading index="04" title="experience" />
+          <p className="text-sm leading-relaxed text-muted-foreground md:mt-[-2rem]">
+            <span className="font-mono text-primary">$ </span>5 internships →
+            full-stack lead. Shipping across HR-tech, agri-tech, food-tech &amp;
+            health-tech.
+          </p>
+        </div>
+        <Reveal>
+          <ol className="relative border-l border-border pl-6 md:pl-8">
           {roles.map((role) => (
             <li key={`${role.company}-${role.period}`} className="mb-10 last:mb-0">
               <span
@@ -103,8 +111,9 @@ export function ExperienceSection() {
               </ul>
             </li>
           ))}
-        </ol>
-      </Reveal>
+          </ol>
+        </Reveal>
+      </div>
     </section>
   )
 }

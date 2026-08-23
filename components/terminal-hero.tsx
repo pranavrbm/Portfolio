@@ -106,11 +106,29 @@ export function TerminalHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-28 md:px-6">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            {'// initializing session'}
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.35em] text-muted-foreground">
+          hello world, i am
+        </p>
+        <h2
+          aria-hidden="true"
+          className="font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl"
+        >
+          {'PRANAV R BHAT'.split('').map((ch, i) => (
+            <span
+              key={i}
+              className="hero-letter"
+              style={{ animationDelay: `${i * 45}ms` }}
+            >
+              {ch === ' ' ? '\u00A0' : ch}
+            </span>
+          ))}
+        </h2>
+        <div className="mb-6 mt-4 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <p className="font-display text-lg text-muted-foreground md:text-2xl">
+            AI &amp; <span className="text-gradient font-semibold">Data Science</span>{' '}
+            Engineer
           </p>
-          <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 font-mono text-xs text-green-300">
+          <span className="inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 font-mono text-xs text-green-300">
             <span className="pulse-dot size-2 rounded-full bg-green-400" aria-hidden="true" />
             open to work
           </span>

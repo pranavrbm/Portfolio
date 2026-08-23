@@ -3,6 +3,7 @@
 import { Check, Copy, Mail, Phone } from 'lucide-react'
 import { useState } from 'react'
 import { GitHubIcon, LinkedInIcon } from './icons'
+import { IstClock } from './ist-clock'
 import { SectionHeading } from './about-section'
 import { Reveal } from './reveal'
 
@@ -99,14 +100,32 @@ export function ContactSection() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border py-8">
-      <div className="mx-auto max-w-6xl px-4 text-center font-mono text-xs text-muted-foreground md:px-6">
-        <p>
-          <span className="text-primary">{'> '}</span>
-          built with next.js &amp; tailwind · {new Date().getFullYear()} · all
-          systems operational
-          <span className="cursor-blink text-primary"> ▋</span>
+    <footer className="relative overflow-hidden border-t border-border">
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-primary/5 to-transparent"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-16 text-center md:px-6">
+        <p className="mb-4 font-mono text-xs text-muted-foreground">
+          <span className="text-primary">$ </span>echo &quot;let&apos;s talk&quot;
         </p>
+        <a
+          href="mailto:pranavrbm@gmail.com"
+          aria-label="Email Pranav R Bhat"
+          className="ghost-text font-display block text-6xl font-bold tracking-tight md:text-8xl"
+        >
+          LET&apos;S TALK
+        </a>
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 font-mono text-xs text-muted-foreground sm:flex-row">
+          <p>
+            <span className="text-primary">{'> '}</span>© {new Date().getFullYear()}{' '}
+            pranavrbm · built with next.js
+          </p>
+          <IstClock />
+          <a href="#top" className="transition-colors hover:text-primary">
+            back_to_top ↑
+          </a>
+        </div>
       </div>
     </footer>
   )

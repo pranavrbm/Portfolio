@@ -59,6 +59,9 @@ export function NavBar() {
           <span className="font-display text-sm font-bold tracking-tight">
             ~/pranavrbm
           </span>
+          <span className="cursor-blink" aria-hidden="true">
+            _
+          </span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
