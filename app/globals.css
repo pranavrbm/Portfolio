@@ -77,6 +77,17 @@
   --chart-4: oklch(0.6 0.06 72);
   --chart-5: oklch(0.5 0.04 65);
   --radius: 0.4rem;
+  /* glow tokens (swapped in hacker mode) */
+  --glow: oklch(0.82 0.15 73);
+  --glow-90: oklch(0.82 0.15 73 / 90%);
+  --glow-45: oklch(0.82 0.15 73 / 45%);
+  --glow-40: oklch(0.82 0.15 73 / 40%);
+  --glow-35: oklch(0.82 0.15 73 / 35%);
+  --glow-30: oklch(0.82 0.15 73 / 30%);
+  --glow-25: oklch(0.82 0.15 73 / 25%);
+  --glow-10: oklch(0.82 0.15 73 / 10%);
+  --glow-9: oklch(0.82 0.15 73 / 9%);
+  --glow-8: oklch(0.82 0.15 73 / 8%);
   --sidebar: oklch(0.175 0.009 65);
   --sidebar-foreground: oklch(0.92 0.012 80);
   --sidebar-primary: oklch(0.82 0.15 73);
@@ -85,6 +96,30 @@
   --sidebar-accent-foreground: oklch(0.87 0.13 74);
   --sidebar-border: oklch(0.82 0.14 73 / 16%);
   --sidebar-ring: oklch(0.82 0.15 73);
+}
+
+/* easter egg: matrix hacker mode (toggle via `matrix` in the hero terminal) */
+.hacker-mode {
+  color-scheme: dark;
+  --primary: oklch(0.75 0.2 150);
+  --primary-foreground: oklch(0.14 0.03 150);
+  --terminal: oklch(0.75 0.2 150);
+  --ring: oklch(0.75 0.2 150);
+  --chart-1: oklch(0.75 0.2 150);
+  --accent: oklch(0.22 0.05 150);
+  --accent-foreground: oklch(0.85 0.16 150);
+  --border: oklch(0.75 0.2 150 / 18%);
+  --input: oklch(0.75 0.2 150 / 12%);
+  --glow: oklch(0.75 0.2 150);
+  --glow-90: oklch(0.75 0.2 150 / 90%);
+  --glow-45: oklch(0.75 0.2 150 / 45%);
+  --glow-40: oklch(0.75 0.2 150 / 40%);
+  --glow-35: oklch(0.75 0.2 150 / 35%);
+  --glow-30: oklch(0.75 0.2 150 / 30%);
+  --glow-25: oklch(0.75 0.2 150 / 25%);
+  --glow-10: oklch(0.75 0.2 150 / 10%);
+  --glow-9: oklch(0.75 0.2 150 / 9%);
+  --glow-8: oklch(0.75 0.2 150 / 8%);
 }
 
 @layer base {
@@ -106,13 +141,13 @@
   /* thin custom scrollbar for panels */
   .scroll-thin {
     scrollbar-width: thin;
-    scrollbar-color: oklch(0.82 0.15 73 / 30%) transparent;
+    scrollbar-color: var(--glow-30) transparent;
   }
   .scroll-thin::-webkit-scrollbar {
     width: 6px;
   }
   .scroll-thin::-webkit-scrollbar-thumb {
-    background: oklch(0.82 0.15 73 / 25%);
+    background: var(--glow-25);
     border-radius: 9999px;
   }
 }
@@ -201,14 +236,14 @@
     font-family: var(--font-display);
   }
   .text-glow {
-    text-shadow: 0 0 10px oklch(0.82 0.15 73 / 45%);
+    text-shadow: 0 0 10px var(--glow-45);
   }
   .box-glow {
-    box-shadow: 0 0 40px oklch(0.82 0.15 73 / 10%);
+    box-shadow: 0 0 40px var(--glow-10);
   }
   .dotgrid {
     background-image: radial-gradient(
-      oklch(0.82 0.15 73 / 8%) 1px,
+      var(--glow-8) 1px,
       transparent 1px
     );
     background-size: 26px 26px;
@@ -239,8 +274,8 @@
   /* faint blueprint grid behind the hero */
   .grid-bg {
     background-image:
-      linear-gradient(oklch(0.82 0.15 73 / 5%) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.82 0.15 73 / 5%) 1px, transparent 1px);
+      linear-gradient(var(--glow-8) 1px, transparent 1px),
+      linear-gradient(90deg, var(--glow-8) 1px, transparent 1px);
     background-size: 44px 44px;
   }
   .cursor-blink {
@@ -301,7 +336,7 @@
     transition: opacity 0.4s ease;
     background: radial-gradient(
       340px circle at var(--mx, 50%) var(--my, 50%),
-      oklch(0.82 0.15 73 / 9%),
+      var(--glow-9),
       transparent 65%
     );
     pointer-events: none;
@@ -315,7 +350,7 @@
     background: linear-gradient(
       115deg,
       oklch(0.95 0.06 85),
-      oklch(0.82 0.15 73)
+      var(--glow)
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -407,8 +442,8 @@
       text-shadow 0.4s ease;
   }
   .ghost-text:hover {
-    color: oklch(0.82 0.15 73 / 90%);
-    text-shadow: 0 0 60px oklch(0.82 0.15 73 / 35%);
+    color: var(--glow-90);
+    text-shadow: 0 0 60px var(--glow-35);
   }
 
   /* bento card base */
@@ -420,7 +455,7 @@
   }
   .bento-card:hover {
     transform: translateY(-2px);
-    border-color: oklch(0.82 0.15 73 / 40%);
+    border-color: var(--glow-40);
   }
 }
 

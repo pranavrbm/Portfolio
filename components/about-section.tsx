@@ -13,6 +13,7 @@ const domains = ['AI/ML & GenAI', 'Data Engineering', 'Full-Stack', 'DevOps & Cl
 const now = [
   'Multi-tenant HRMS platform @ TheDayHR',
   'Open to new opportunities & collaborations',
+  'coffee_reserves ▓▓▓▓▓▓▓░░░ 74% (declining)',
 ]
 
 export function AboutSection() {

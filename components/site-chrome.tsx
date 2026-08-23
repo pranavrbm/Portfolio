@@ -28,11 +28,46 @@ export function ScrollProgress() {
         className="h-full bg-primary transition-[width] duration-150 ease-out"
         style={{
           width: `${progress}%`,
-          boxShadow: '0 0 10px oklch(0.82 0.15 73 / 60%)',
+          boxShadow: '0 0 10px var(--glow-45)',
         }}
       />
     </div>
   )
+}
+
+export function EasterEggs() {
+  useEffect(() => {
+    // playful tab title when the visitor switches away
+    const original = document.title
+    const onVisibility = () => {
+      document.title = document.hidden
+        ? '⌨️ come back, the terminal misses you...'
+        : original
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
+    // devtools greeting
+    try {
+      console.log(
+        '%c~/pranavrbm%c v2.6 — you opened the devtools. curiosity: +10. hiring prospects: also +10.',
+        'color:#fbbf24;font-size:18px;font-weight:bold;font-family:monospace',
+        'color:#9c9484;font-family:monospace'
+      )
+      console.log(
+        '%cpsst: the hero terminal accepts input. try \'help\'. or \'matrix\'. or \'sudo hire-me\'.',
+        'color:#9c9484;font-family:monospace'
+      )
+    } catch {
+      // console blocked — skip
+    }
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      document.title = original
+    }
+  }, [])
+
+  return null
 }
 
 export function CursorGlow() {

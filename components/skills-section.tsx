@@ -109,6 +109,9 @@ export function SkillsSection() {
       className="mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6"
     >
       <SectionHeading index="02" title="skills" />
+      <p className="mb-8 -mt-6 font-mono text-xs text-muted-foreground">
+        {'// humbled daily by all of the above'}
+      </p>
       <div className="grid gap-6 sm:grid-cols-2">
         {groups.map((group, i) => (
           <Reveal key={group.label} delay={(i % 2) * 90 + Math.floor(i / 2) * 40}>

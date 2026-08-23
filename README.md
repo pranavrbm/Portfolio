@@ -105,6 +105,17 @@
 
 ---
 
+## 🥚 Easter Eggs
+
+- the hero terminal is **real** — click it and type `help`
+- `sudo hire-me` does exactly what you think it does
+- try `matrix` … then try to go back
+- `coffee` — for science
+- check the browser devtools console
+- switch browser tabs. the site notices.
+
+---
+
 ## 📊 GitHub Stats
 
 <p align="center">

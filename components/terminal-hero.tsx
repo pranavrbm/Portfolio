@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Download } from 'lucide-react'
 import { MatrixRain } from './matrix-rain'
 
@@ -9,6 +9,8 @@ type Line = {
   text: string
   output?: boolean
 }
+
+type HistoryEntry = { kind: 'cmd' | 'out'; text: string }
 
 const script: Line[] = [
   { prompt: '$', text: 'whoami' },
@@ -32,12 +34,155 @@ const script: Line[] = [
   { text: '[ ONLINE ] open to new opportunities', output: true },
 ]
 
+const jokes = [
+  'why do programmers prefer dark mode? because light attracts bugs.',
+  'there are 10 types of people: those who understand binary and those who don\'t.',
+  'i would tell you a UDP joke, but you might not get it.',
+  '99 little bugs in the code, 99 little bugs... patch one down, run it around — 127 little bugs in the code.',
+  'my code works and i have no idea why. please don\'t ask me to explain it.',
+]
+
+const coffeeArt = [
+  '    ( (',
+  '     ) )',
+  '  ..........',
+  '  |        |]',
+  "  '--------'",
+  'brewing... ☕ productivity +10%, sleep -10%',
+]
+
+function toggleHacker(): boolean {
+  const on = document.documentElement.classList.toggle('hacker-mode')
+  try {
+    localStorage.setItem('pranav-hacker', on ? '1' : '0')
+  } catch {
+    // private mode — no persistence
+  }
+  return on
+}
+
+function runCommand(raw: string): { lines: string[]; action?: () => void } {
+  const cmd = raw.trim().toLowerCase()
+
+  if (cmd === 'help') {
+    return {
+      lines: [
+        'available commands:',
+        '  whoami        who are you again?',
+        '  ls            list sections',
+        '  cat resume    download my CV (the cheeky way)',
+        '  sudo hire-me  fast-track to my inbox',
+        '  coffee        brew one',
+        '  joke          developer humor, best-effort',
+        '  matrix        follow the white rabbit',
+        '  clear         wipe the evidence',
+        '  exit          try your luck',
+      ],
+    }
+  }
+  if (cmd === 'whoami') {
+    return {
+      lines: [
+        'pranavrbm — human, probably (confidence: 97%)',
+        'occupation: turning caffeine and data into software',
+      ],
+    }
+  }
+  if (cmd === 'ls' || cmd === 'ls -la' || cmd === 'ls ./') {
+    return {
+      lines: ['about/  skills/  projects/  experience/  creds/  contact/'],
+    }
+  }
+  if (cmd === 'cat resume' || cmd === 'cat resume.pdf' || cmd === 'cv') {
+    return {
+      lines: ['fetching pranavrbm_CV.pdf ...', 'download started ✓ (you\'re welcome)'],
+      action: () => {
+        const a = document.createElement('a')
+        a.href = '/pranavrbm_CV.pdf'
+        a.download = ''
+        a.click()
+      },
+    }
+  }
+  if (cmd === 'sudo hire-me' || cmd === 'sudo hire me') {
+    return {
+      lines: ['[sudo] permission granted ✓', 'routing you to my inbox...'],
+      action: () =>
+        document
+          .getElementById('contact')
+          ?.scrollIntoView({ behavior: 'smooth' }),
+    }
+  }
+  if (cmd.startsWith('sudo')) {
+    return {
+      lines: [
+        'user is not in the sudoers file.',
+        'this incident will be reported... to my inbox.',
+      ],
+    }
+  }
+  if (cmd === 'coffee' || cmd === '☕') {
+    return { lines: coffeeArt }
+  }
+  if (cmd === 'joke' || cmd === 'jokes') {
+    return { lines: [jokes[Math.floor(Math.random() * jokes.length)]] }
+  }
+  if (cmd === 'matrix' || cmd === 'neo' || cmd === 'red pill') {
+    const on = toggleHacker()
+    return {
+      lines: [
+        'wake up, neo...',
+        on
+          ? 'hacker mode: ON. welcome to the real world.'
+          : 'hacker mode: OFF. back to the amber simulation.',
+      ],
+    }
+  }
+  if (cmd === 'exit' || cmd === 'quit' || cmd === 'logout') {
+    return {
+      lines: [
+        'there is no exit. only deploy.',
+        '(but seriously — check out my projects below)',
+      ],
+    }
+  }
+  if (cmd === 'rm -rf /' || cmd === 'rm -rf /*') {
+    return { lines: ['nice try 😏 this portfolio is immutable.'] }
+  }
+  if (cmd === 'hello' || cmd === 'hi' || cmd === 'hey' || cmd === 'yo') {
+    return { lines: ['hey there! type \'help\' to see my tricks.'] }
+  }
+  if (cmd === 'ping') {
+    return { lines: ['pong. latency: one coffee. status: employable.'] }
+  }
+  if (cmd === 'pwd') {
+    return { lines: ['/home/pranavrbm/portfolio (hire-please)'] }
+  }
+  return {
+    lines: [`bash: ${raw.trim()}: command not found`, 'hint: type \'help\''],
+  }
+}
+
 export function TerminalHero() {
   const [rendered, setRendered] = useState<Line[]>([])
   const [current, setCurrent] = useState('')
   const [lineIdx, setLineIdx] = useState(0)
   const [charIdx, setCharIdx] = useState(0)
   const [done, setDone] = useState(false)
+  const [history, setHistory] = useState<HistoryEntry[]>([])
+  const [input, setInput] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
+  const bodyRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    try {
+      if (localStorage.getItem('pranav-hacker') === '1') {
+        document.documentElement.classList.add('hacker-mode')
+      }
+    } catch {
+      // no storage — skip
+    }
+  }, [])
 
   useEffect(() => {
     if (
@@ -80,6 +225,29 @@ export function TerminalHero() {
     }, 400)
     return () => clearTimeout(t)
   }, [lineIdx, charIdx])
+
+  useEffect(() => {
+    const el = bodyRef.current
+    if (el) el.scrollTop = el.scrollHeight
+  }, [history, done])
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const cmd = input.trim()
+    if (!cmd) return
+    setInput('')
+    if (cmd.toLowerCase() === 'clear') {
+      setHistory([])
+      return
+    }
+    const { lines, action } = runCommand(cmd)
+    setHistory((h) => [
+      ...h,
+      { kind: 'cmd', text: cmd },
+      ...lines.map((text) => ({ kind: 'out' as const, text })),
+    ])
+    action?.()
+  }
 
   const typingLine = lineIdx < script.length ? script[lineIdx] : null
   const showTypingCommand = typingLine && !typingLine.output
@@ -133,17 +301,22 @@ export function TerminalHero() {
             open to work
           </span>
         </div>
+
         <div className="overflow-hidden rounded-lg border border-primary/25 bg-card/70 backdrop-blur-sm box-glow">
           <div className="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-3">
             <span className="size-3 rounded-full bg-destructive/80" aria-hidden="true" />
             <span className="size-3 rounded-full bg-chart-3/80" aria-hidden="true" />
             <span className="size-3 rounded-full bg-primary/80" aria-hidden="true" />
             <span className="ml-2 font-mono text-xs text-muted-foreground">
-              root@dev: ~/portfolio
+              root@dev: ~/portfolio — interactive
             </span>
           </div>
 
-          <div className="min-h-[400px] space-y-2 p-5 font-mono text-sm leading-relaxed sm:min-h-[330px] md:text-base">
+          <div
+            ref={bodyRef}
+            onClick={() => inputRef.current?.focus()}
+            className="scroll-thin max-h-[460px] min-h-[400px] space-y-2 overflow-y-auto p-5 font-mono text-sm leading-relaxed sm:min-h-[330px] md:text-base"
+          >
             {rendered.map((line, i) =>
               line.output ? (
                 <p key={i} className="pl-4 text-foreground">
@@ -167,10 +340,38 @@ export function TerminalHero() {
             )}
 
             {done && (
-              <p className="text-primary text-glow">
-                <span className="text-muted-foreground">$ </span>
-                <span className="cursor-blink">▋</span>
-              </p>
+              <>
+                {history.map((entry, i) =>
+                  entry.kind === 'cmd' ? (
+                    <p key={i} className="text-primary text-glow">
+                      <span className="text-muted-foreground">$ </span>
+                      {entry.text}
+                    </p>
+                  ) : (
+                    <p key={i} className="whitespace-pre-wrap pl-4 text-foreground">
+                      <span className="text-muted-foreground">{'> '}</span>
+                      {entry.text}
+                    </p>
+                  )
+                )}
+                <form
+                  onSubmit={onSubmit}
+                  className="flex items-center gap-2 text-primary"
+                >
+                  <span className="shrink-0 text-muted-foreground">$</span>
+                  <input
+                    ref={inputRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    className="w-full min-w-0 flex-1 bg-transparent text-primary caret-primary outline-none placeholder:text-muted-foreground/50"
+                    placeholder="type 'help' and hit enter..."
+                    spellCheck={false}
+                    autoComplete="off"
+                    autoCapitalize="none"
+                    aria-label="Terminal input — type help for commands"
+                  />
+                </form>
+              </>
             )}
           </div>
         </div>

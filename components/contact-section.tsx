@@ -119,7 +119,7 @@ export function SiteFooter() {
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 font-mono text-xs text-muted-foreground sm:flex-row">
           <p>
             <span className="text-primary">{'> '}</span>© {new Date().getFullYear()}{' '}
-            pranavrbm · built with next.js
+            pranavrbm · built at 2am with next.js · no bugs were harmed
           </p>
           <IstClock />
           <a href="#top" className="transition-colors hover:text-primary">

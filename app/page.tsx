@@ -9,6 +9,7 @@ import { CredentialsSection } from '@/components/credentials-section'
 import { ContactSection, SiteFooter } from '@/components/contact-section'
 import {
   CursorGlow,
+  EasterEggs,
   NoiseOverlay,
   ScrollProgress,
 } from '@/components/site-chrome'
@@ -19,6 +20,7 @@ export default function Page() {
       <NoiseOverlay />
       <ScrollProgress />
       <CursorGlow />
+      <EasterEggs />
       <NavBar />
       <TerminalHero />
       <TechMarquee />
