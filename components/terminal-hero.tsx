@@ -15,12 +15,12 @@ const script: Line[] = [
   { text: 'Pranav R Bhat — AI & Data Science Engineer', output: true },
   { prompt: '$', text: 'cat role.txt' },
   {
-    text: 'I build production ML pipelines, RAG systems, LLM automations, and full-stack apps.',
+    text: 'I build end-to-end AI products: RAG systems, LLM pipelines, and full-stack apps.',
     output: true,
   },
   { prompt: '$', text: 'ls ./stack' },
   {
-    text: 'python  pytorch  langchain  fastapi  docker  gcp  postgres',
+    text: 'python  pytorch  langchain  fastapi  next.js  docker  gcp',
     output: true,
   },
   { prompt: '$', text: 'cat ./highlights' },
@@ -89,13 +89,32 @@ export function TerminalHero() {
       id="top"
       className="scanlines relative flex min-h-screen items-center overflow-hidden grid-bg"
     >
+      <h1 className="sr-only">
+        Pranav R Bhat — AI &amp; Data Science Engineer, IEEE published researcher
+      </h1>
+
+      {/* ambient glow */}
+      <div
+        className="orb animate-float left-[-10%] top-[15%] size-[420px] bg-primary/20"
+        aria-hidden="true"
+      />
+      <div
+        className="orb animate-float-delayed bottom-[5%] right-[-8%] size-[380px] bg-chart-2/15"
+        aria-hidden="true"
+      />
       <MatrixRain />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-28 md:px-6">
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-          {'// initializing session'}
-        </p>
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            {'// initializing session'}
+          </p>
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 font-mono text-xs text-green-300">
+            <span className="pulse-dot size-2 rounded-full bg-green-400" aria-hidden="true" />
+            open to work
+          </span>
+        </div>
         <div className="overflow-hidden rounded-lg border border-primary/25 bg-card/70 backdrop-blur-sm box-glow">
           <div className="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-3">
             <span className="size-3 rounded-full bg-destructive/80" aria-hidden="true" />
@@ -141,21 +160,21 @@ export function TerminalHero() {
         <div className="mt-10 flex flex-col items-start gap-4 font-mono sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href="#projects"
-            className="rounded border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="rounded border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:opacity-90 hover:box-glow"
           >
             view_projects()
           </a>
           <a
             href="/pranavrbm_CV.pdf"
             download
-            className="inline-flex items-center gap-2 rounded border border-primary/40 px-5 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-accent"
+            className="inline-flex items-center gap-2 rounded border border-primary/40 px-5 py-2.5 text-sm font-medium text-primary transition-all hover:-translate-y-0.5 hover:bg-accent"
           >
             <Download className="size-4" aria-hidden="true" />
             download_cv()
           </a>
           <a
             href="#contact"
-            className="rounded border border-primary/40 px-5 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-accent"
+            className="rounded border border-primary/40 px-5 py-2.5 text-sm font-medium text-primary transition-all hover:-translate-y-0.5 hover:bg-accent"
           >
             get_in_touch()
           </a>

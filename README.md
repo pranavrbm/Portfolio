@@ -1,11 +1,13 @@
-<h1 align="center">Pranav R Bhat</h1>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FBBF24,100:B45309&height=170&section=header&text=Pranav%20R%20Bhat&fontSize=52&fontColor=17130d&fontAlignY=34&desc=AI%20%26%20Data%20Science%20Engineer&descSize=20&descAlignY=55" width="100%" alt="Pranav R Bhat" />
+</div>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=FBBF24&center=true&vCenter=true&width=560&lines=AI+%26+Data+Science+Engineer;2%C3%97+IEEE+Published+Researcher;ML+Pipelines+%C2%B7+RAG+%C2%B7+LLM+Automation;From+Data+to+Deployment" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&pause=1000&color=FBBF24&center=true&vCenter=true&width=560&lines=2%C3%97+IEEE+Published+Researcher;ML+Pipelines+%C2%B7+RAG+%C2%B7+LLM+Automation;Bridging+ML+Inference+%26+Full-Stack+UX;From+Data+to+Deployment" alt="Typing SVG" />
 </p>
 
 <p align="center">
-  <a href="https://pranavrbm.github.io"><img src="https://img.shields.io/badge/Portfolio-FBBF24?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Portfolio" /></a>
+  <a href="https://pranavrbm.com"><img src="https://img.shields.io/badge/Portfolio-FBBF24?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Portfolio" /></a>
   <a href="https://www.linkedin.com/in/pranavrbm/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://github.com/pranavrbm"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
   <a href="mailto:pranavrbm@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
@@ -13,10 +15,18 @@
 </p>
 
 <p align="center">
-  B.Tech AI &amp; Data Science (NMAMIT '26) building production-grade ML pipelines, RAG systems,<br />
-  LLM-powered automation, and full-stack apps — shipped real products across agriculture,<br />
-  healthcare, and resource management.
+  B.Tech AI &amp; Data Science (NMAMIT '26) specializing in bridging heavy ML inference —<br />
+  local GPUs, LLM orchestration, audio processing — with seamless full-stack experiences.<br />
+  Two-time IEEE published researcher shipping real products across HR-tech, agri-tech &amp; health-tech.
 </p>
+
+---
+
+## ⚡ Now
+
+- 🏗️ Architecting a **multi-tenant HRMS** (Spring Boot + React) at TheDayHR
+- 🎙️ Engineering **HireGuard** — AI interview capture & analysis (LiveKit, Whisper, Groq LLMs) at Unique Hire
+- 🎓 Open to full-time roles & research collaborations
 
 ---
 
@@ -67,8 +77,18 @@
 | **[water-crisis-platform](https://github.com/AD-15-Final/water-crisis-management-system)** | Urban water intelligence for Bengaluru — ETL, LightGBM ensemble, FastAPI serving, RBAC Next.js dashboard | **90.23% accuracy** · IEEE ICIRCA 2026 · KSCST grant |
 | **[deceptive-review-detection](https://github.com/MLProjectTeam3/Fake_Review_Prediction)** | NLP pipeline flagging AI-generated fake reviews | **92% accuracy** · IEEE first author |
 | **[ai-health-microservices](https://github.com/pranavrbm/Fitness-App)** | Spring Boot microservices with Keycloak OAuth2, RabbitMQ, Gemini health recommendations | Microservices · async messaging |
-| **leafcolor-crop-analyzer** | Computer vision leaf-nitrogen estimation with automated reports | **92% accuracy** vs expert ratings |
 | **[furever-adoption](https://github.com/pranavrbm/FurEver)** | Pet adoption platform with NextAuth RBAC and SEO-optimized SSR | Full-stack · Prisma · PostgreSQL |
+
+---
+
+## 🏆 Honors & Certifications
+
+| Award / Certification | Issuer | Year |
+| :--- | :--- | :--- |
+| Research Project Grant (water crisis forecasting) | KSCST, Govt. of Karnataka | 2026 |
+| Commendation Prize 1 — WENAMITAA, EXPRO | NMAMIT, Dept. of AI & DS | 2026 |
+| Certificate of Presentation | IEEE ICIRCA 2026 (SMC Society) | 2026 |
+| [Machine Learning Specialization](https://coursera.org/verify/specialization/B207U213G589) | Stanford Online & DeepLearning.AI | 2025 |
 
 ---
 
@@ -103,3 +123,7 @@
   <i>Student Member — IEEE Computer Society · Member — ACM India Chapter</i><br /><br />
   <b>"Got a data problem or a model to ship? Let's talk."</b> — <a href="mailto:pranavrbm@gmail.com">pranavrbm@gmail.com</a>
 </p>
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:B45309,100:FBBF24&height=100&section=footer" width="100%" alt="" />
+</div>

@@ -48,6 +48,26 @@ const languages = [
   { name: 'Japanese', level: 'Learning' },
 ]
 
+function Card({
+  icon: Icon,
+  title,
+  children,
+}: {
+  icon: typeof FileText
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <div className="h-full rounded-lg border border-border bg-card/50 p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40">
+      <h3 className="mb-5 flex items-center gap-2 font-mono text-sm font-semibold text-primary text-glow">
+        <Icon className="size-4" aria-hidden="true" />
+        {title}
+      </h3>
+      {children}
+    </div>
+  )
+}
+
 export function CredentialsSection() {
   return (
     <section
@@ -55,13 +75,9 @@ export function CredentialsSection() {
       className="mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6"
     >
       <SectionHeading index="05" title="creds" />
-      <Reveal>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border border-border bg-card/50 p-6">
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-sm font-semibold text-primary text-glow">
-              <FileText className="size-4" aria-hidden="true" />
-              publications
-            </h3>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Reveal delay={0}>
+          <Card icon={FileText} title="publications">
             <ul className="space-y-5">
               {publications.map((item) => (
                 <li key={item.title}>
@@ -90,13 +106,11 @@ export function CredentialsSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
+        </Reveal>
 
-          <div className="rounded-lg border border-border bg-card/50 p-6">
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-sm font-semibold text-primary text-glow">
-              <Award className="size-4" aria-hidden="true" />
-              awards
-            </h3>
+        <Reveal delay={90}>
+          <Card icon={Award} title="awards">
             <ul className="space-y-5">
               {awards.map((item) => (
                 <li key={item.title}>
@@ -114,13 +128,11 @@ export function CredentialsSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
+        </Reveal>
 
-          <div className="rounded-lg border border-border bg-card/50 p-6">
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-sm font-semibold text-primary text-glow">
-              <GraduationCap className="size-4" aria-hidden="true" />
-              education
-            </h3>
+        <Reveal delay={0}>
+          <Card icon={GraduationCap} title="education">
             <div className="flex items-baseline justify-between gap-3">
               <p className="text-sm font-medium text-foreground">
                 B.Tech, Artificial Intelligence &amp; Data Science
@@ -145,13 +157,11 @@ export function CredentialsSection() {
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
               Alva&apos;s Pre-University College, Moodubidri — 90%.
             </p>
-          </div>
+          </Card>
+        </Reveal>
 
-          <div className="rounded-lg border border-border bg-card/50 p-6">
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-sm font-semibold text-primary text-glow">
-              <ScrollText className="size-4" aria-hidden="true" />
-              certification
-            </h3>
+        <Reveal delay={90}>
+          <Card icon={ScrollText} title="certification">
             <div className="flex items-baseline justify-between gap-3">
               <p className="text-sm font-medium text-foreground">
                 Machine Learning Specialization
@@ -173,13 +183,11 @@ export function CredentialsSection() {
               verify credential
               <ArrowUpRight className="size-3" aria-hidden="true" />
             </a>
-          </div>
+          </Card>
+        </Reveal>
 
-          <div className="rounded-lg border border-border bg-card/50 p-6 md:col-span-2">
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-sm font-semibold text-primary text-glow">
-              <Users className="size-4" aria-hidden="true" />
-              affiliations_languages
-            </h3>
+        <Reveal delay={140} className="md:col-span-2">
+          <Card icon={Users} title="affiliations_languages">
             <div className="grid gap-8 md:grid-cols-2">
               <ul className="space-y-2">
                 {affiliations.map((item) => (
@@ -200,14 +208,15 @@ export function CredentialsSection() {
                     key={lang.name}
                     className="rounded border border-border bg-secondary/40 px-3 py-1.5 font-mono text-xs text-foreground"
                   >
-                    {lang.name} <span className="text-muted-foreground">· {lang.level}</span>
+                    {lang.name}{' '}
+                    <span className="text-muted-foreground">· {lang.level}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </Reveal>
+          </Card>
+        </Reveal>
+      </div>
     </section>
   )
 }

@@ -42,9 +42,9 @@ export function NavBar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? 'border-b border-border bg-background/80 backdrop-blur-md'
+          ? 'border-b border-border bg-background/80 shadow-lg shadow-black/20 backdrop-blur-md'
           : 'border-b border-transparent'
       }`}
     >
@@ -56,7 +56,9 @@ export function NavBar() {
           onClick={() => setOpen(false)}
         >
           <Terminal className="size-5" aria-hidden="true" />
-          <span className="text-sm font-bold tracking-tight">~/pranavrbm</span>
+          <span className="font-display text-sm font-bold tracking-tight">
+            ~/pranavrbm
+          </span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -64,8 +66,9 @@ export function NavBar() {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
+                data-active={active === link.id}
                 aria-current={active === link.id ? 'true' : undefined}
-                className={`rounded px-3 py-2 text-sm transition-colors hover:text-glow ${
+                className={`nav-link rounded px-3 py-2 text-sm transition-colors ${
                   active === link.id
                     ? 'text-primary text-glow'
                     : 'text-muted-foreground hover:text-primary'

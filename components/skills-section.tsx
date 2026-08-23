@@ -109,13 +109,10 @@ export function SkillsSection() {
       className="mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6"
     >
       <SectionHeading index="02" title="skills" />
-      <Reveal>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {groups.map((group) => (
-            <div
-              key={group.label}
-              className="rounded-lg border border-border bg-card/50 p-6 transition-colors hover:border-primary/40"
-            >
+      <div className="grid gap-6 sm:grid-cols-2">
+        {groups.map((group, i) => (
+          <Reveal key={group.label} delay={(i % 2) * 90 + Math.floor(i / 2) * 40}>
+            <div className="h-full rounded-lg border border-border bg-card/50 p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40">
               <h3 className="mb-4 font-mono text-sm font-semibold text-primary text-glow">
                 <span className="text-muted-foreground">const </span>
                 {group.label}
@@ -125,7 +122,7 @@ export function SkillsSection() {
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="rounded border border-border bg-secondary/40 px-3 py-1.5 font-mono text-sm text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                    className="rounded border border-border bg-secondary/40 px-3 py-1.5 font-mono text-sm text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
                   >
                     {item}
                   </li>
@@ -133,9 +130,9 @@ export function SkillsSection() {
               </ul>
               <span className="mt-4 block font-mono text-sm text-muted-foreground">]</span>
             </div>
-          ))}
-        </div>
-      </Reveal>
+          </Reveal>
+        ))}
+      </div>
     </section>
   )
 }
