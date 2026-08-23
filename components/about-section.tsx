@@ -3,7 +3,7 @@ import { Reveal } from './reveal'
 
 const stats = [
   { label: 'ieee_publications', value: '2' },
-  { label: 'internships', value: '4' },
+  { label: 'internships', value: '5' },
   { label: 'reviews_automated', value: '1000+' },
 ]
 
@@ -17,8 +17,9 @@ export function AboutSection() {
             <p className="text-pretty text-base leading-relaxed text-foreground/90 md:text-lg">
               I&apos;m a B.Tech graduate in Artificial Intelligence &amp; Data
               Science from NMAM Institute of Technology (2026), building
-              production-grade machine learning pipelines, RAG systems,
-              LLM-powered automation, and full-stack applications.
+              end-to-end AI products — bridging heavy ML inference (local GPUs,
+              LLM orchestration, audio processing) with seamless full-stack
+              experiences.
             </p>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
               A two-time IEEE published researcher — first author at IEEE

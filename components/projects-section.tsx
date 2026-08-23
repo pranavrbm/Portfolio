@@ -28,14 +28,6 @@ const projects = [
     paper: null,
   },
   {
-    name: 'leafcolor-crop-analyzer',
-    desc: 'Computer vision application that segments agricultural leaf images to estimate nitrogen content against manual expert ratings, with automated scientific report generation.',
-    tags: ['Python', 'Cython', 'Image Segmentation'],
-    metric: '92% accuracy vs expert ratings',
-    code: null,
-    paper: null,
-  },
-  {
     name: 'furever-adoption',
     desc: 'Full-stack pet adoption platform with NextAuth role-based authentication, Prisma relational schema design, REST API routes, and SEO-optimized server-rendered listings.',
     tags: ['Next.js', 'Prisma', 'PostgreSQL', 'NextAuth.js'],

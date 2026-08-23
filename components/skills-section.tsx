@@ -4,7 +4,7 @@ import { Reveal } from './reveal'
 const groups = [
   {
     label: 'languages',
-    items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Java', 'C++', 'Dart'],
+    items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Java', 'C++'],
   },
   {
     label: 'ai_ml',
@@ -17,6 +17,7 @@ const groups = [
       'LightGBM',
       'SHAP',
       'HuggingFace',
+      'Computer Vision',
     ],
   },
   {
@@ -28,18 +29,24 @@ const groups = [
       'RAG Pipelines',
       'Llama 3.1',
       'Gemini API',
-      'Vector Embeddings',
-      'Semantic Search',
+      'Whisper',
+      'Pyannote',
+      'Prompt Engineering',
+      'Fine-tuning',
     ],
   },
   {
-    label: 'automation_scraping',
+    label: 'automation_tooling',
     items: [
       'Playwright',
+      'FFmpeg',
+      'LiveKit',
       'Google Business API',
       'SMTP Automation',
       'Linux Cron',
-      'Web Scraping',
+      'Postman',
+      'Claude Code',
+      'GitHub Copilot',
     ],
   },
   {
@@ -53,6 +60,8 @@ const groups = [
       'REST',
       'GraphQL',
       'RabbitMQ',
+      'OAuth2/JWT',
+      'Keycloak',
     ],
   },
   {
@@ -68,7 +77,8 @@ const groups = [
       'Redis',
       'Prisma',
       'Supabase',
-      'Firebase',
+      'ChromaDB',
+      'BigQuery',
     ],
   },
   {
@@ -78,19 +88,17 @@ const groups = [
   {
     label: 'devops_cloud',
     items: [
-      'Docker',
+      'Docker Compose',
       'CI/CD',
       'GitHub Actions',
       'GCP',
       'AWS',
       'Nginx',
       'Linux VPS',
+      'Monitoring',
+      'Firebase',
       'Vercel',
     ],
-  },
-  {
-    label: 'design_tooling',
-    items: ['Figma MCP', 'Claude Code', 'GitHub Copilot'],
   },
 ]
 

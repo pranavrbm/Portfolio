@@ -6,13 +6,13 @@ const publications = [
   {
     title:
       'Probabilistic Multi-Horizon Urban Water Crisis Prediction using Ensemble ML',
-    meta: 'Co-Author · IEEE ICIRCA 2026, Coimbatore · ISBN 979-8-3315-5939-7',
+    meta: 'Co-Author · IEEE ICIRCA 2026 (7th ICRICA), Coimbatore · IEEE SMC Society · ISBN 979-8-3315-5939-7',
     date: 'Jun 2026',
     href: null,
   },
   {
     title: 'Identifying Deceptive AI Reviews: A Machine Learning Approach',
-    meta: 'First Author · IEEE DISCOVER 2024, Mangaluru · IEEE Xplore #62353',
+    meta: 'First Author · IEEE DISCOVER 2024, St Joseph Engineering College, Mangaluru · IEEE Xplore',
     date: 'Oct 2024',
     href: 'https://ieeexplore.ieee.org/document/10750586',
   },
@@ -21,13 +21,18 @@ const publications = [
 const awards = [
   {
     title: 'Research Project Grant — KSCST, Government of Karnataka',
-    meta: 'Competitive grant for the AI-powered urban water crisis forecasting project.',
+    meta: 'Competitive government grant for the AI-powered urban water crisis forecasting project.',
     date: '2026',
   },
   {
     title: 'Commendation Prize 1 — WENAMITAA, EXPRO 2025-26',
     meta: 'Top project at the Dept. of AI & DS annual exposition, NMAMIT.',
     date: '2026',
+  },
+  {
+    title: 'Certificate of Presentation — IEEE ICIRCA 2026',
+    meta: 'IEEE Systems, Man, and Cybernetics Society · probabilistic urban water crisis prediction.',
+    date: 'Jun 2026',
   },
 ]
 
@@ -125,8 +130,9 @@ export function CredentialsSection() {
               </span>
             </div>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-              NMAM Institute of Technology, Nitte — Karkala, Karnataka. Coursework:
-              ML, Deep Learning, NLP, DBMS, DSA, Cloud Computing.
+              NMAM Institute of Technology, Nitte — Karkala, Karnataka · CGPA:
+              7.19. Coursework: ML, Deep Learning, NLP, DBMS, DSA, Cloud
+              Computing.
             </p>
             <div className="mt-4 flex items-baseline justify-between gap-3">
               <p className="text-sm font-medium text-foreground">

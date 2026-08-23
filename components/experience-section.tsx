@@ -3,14 +3,36 @@ import { Reveal } from './reveal'
 
 const roles = [
   {
-    role: 'AI & Web Development Intern',
+    role: 'Software Architect / Full-Stack Lead',
+    company: 'UK Software Pvt. Ltd. (TheDayHR)',
+    period: 'Jun 2026 — Present',
+    points: [
+      'Architecting a secure, multi-tenant HRMS (Java, Spring Boot) isolating corporate client data with granular role-based access control.',
+      'Engineered fully automated CI/CD pipelines (GitHub Actions) pushing production builds to Linux/Nginx servers via SSH.',
+      'Designed a state-driven React frontend orchestrating complex multi-step workflows — client onboarding and subscription management.',
+      'Built resilient REST APIs optimized for partial updates and strict data integrity, with JWT authentication and DLT-compliant SMS/email engines for alerts and OTPs.',
+    ],
+  },
+  {
+    role: 'Software Engineering Intern (AI & Full-Stack)',
+    company: 'Unique Hire',
+    period: 'Mar 2026 — Present',
+    points: [
+      'Engineering HireGuard — an end-to-end interview capture and analysis platform built on Next.js, FastAPI, and Supabase.',
+      'Integrated LiveKit real-time video rooms and egress, using FFmpeg to extract audio automatically for downstream ML analysis.',
+      'Built a dual-path transcription pipeline with local GPU-accelerated models (Whisper Large v3 Turbo, Pyannote 3.1) and Groq cloud APIs for speaker-aware transcripts.',
+      'Designed strict JSON-enforced LLM prompting pipelines (Groq LLaMA) evaluating candidate credibility, generating performance metrics, and flagging behavioral signals.',
+    ],
+  },
+  {
+    role: 'AI & Automation Engineer Intern',
     company: 'Organic Mandya',
     period: 'Mar 2026 — May 2026',
     points: [
-      'Built an end-to-end AI review-reply system (Playwright + Google Business API) generating brand-authentic responses for 22 store locations (1,000+ reviews) using Llama 3.1 via Ollama with ChromaDB-backed RAG over the company website.',
-      'Migrated the ETL infrastructure — 15+ BigQuery tables and 10\u201315 cron jobs across Shopify API & Odoo — to an in-house Linux VPS, validated end-to-end and version-controlled with Git.',
-      'Designed, built, and deployed know.organicmandya.com (Astro v6, Tailwind CSS v4): 15+ content categories, full-text search, SEO, dark mode, and an accessibility pass — live in production.',
-      'Prototyped the Suggi farmer/consumer mobile app (Figma MCP + React) and onboarded teammates on Claude Code, Git workflows, and AI-assisted development.',
+      'Audited and fully migrated the production ETL infrastructure (BigQuery, Shopify API, Odoo, cron jobs) to an in-house Linux VPS, validated end-to-end with Git-based version control.',
+      'Built a REST-integrated review management system (Google Business API + Playwright) automating brand-authentic replies via RAG — Llama 3.1:8b served through Ollama with a ChromaDB vector store — plus SMTP escalation for flagged reviews.',
+      'Designed and deployed know.organicmandya.com (Astro v6, Tailwind CSS v4): 15+ content categories, full-text search, SEO, dark mode, and UTM analytics tracking.',
+      'Onboarded two team members on Git workflows, Claude Code, and AI-assisted development practices.',
     ],
   },
   {
@@ -18,9 +40,9 @@ const roles = [
     company: 'UK Software Pvt. Ltd. (TheDayHR)',
     period: 'Dec 2025 — Feb 2026',
     points: [
-      'Sole DevOps engineer: stood up the initial deployment architecture with frontend on Cloudflare, backend on Render, and database on Supabase.',
-      'Migrated the full stack onto a single GCP Compute Engine instance running Docker-based containers, consolidating infrastructure.',
-      'Built and maintained GitHub Actions CI/CD pipelines, replacing manual deployment steps end-to-end.',
+      'Built GitHub Actions workflows automating build, test, and deployment steps, reducing manual release effort for the engineering team.',
+      'Deployed and managed Docker-based application environments on cloud infrastructure, handling environment configuration and server administration.',
+      'Set up application monitoring to track uptime and proactively surface issues across day-to-day operations.',
     ],
   },
   {
@@ -28,9 +50,9 @@ const roles = [
     company: 'Personifwy (via 1stop)',
     period: 'Jul 2025 — Sep 2025',
     points: [
-      'Built an end-to-end hate-speech text classification pipeline with TF-IDF, word embeddings, SVM, and Logistic Regression.',
-      'Developed a heart-failure mortality predictor using XGBoost, CatBoost, Random Forest, SHAP explainability, SMOTE class-imbalance handling, and rigorous cross-validation.',
-      'Ran deep-dive EDA on the Home Credit Default Risk dataset (300K+ rows), translating statistical anomalies into actionable business insights.',
+      'Built an end-to-end hate-speech text classification pipeline covering tokenization, TF-IDF, word embeddings, SVM, and Logistic Regression on real-world social media data.',
+      'Developed a heart-failure mortality predictor using XGBoost, CatBoost, SHAP explainability, SMOTE class-imbalance handling, and rigorous cross-validation.',
+      'Ran deep-dive EDA on the Home Credit Default Risk dataset (300K+ rows), performing statistical anomaly detection and translating findings into business risk insights.',
     ],
   },
   {
@@ -38,9 +60,8 @@ const roles = [
     company: 'Krishitantra',
     period: 'Jun 2024 — Aug 2024',
     points: [
-      'Engineered Python image-processing pipelines estimating crop nitrogen levels from leaf imagery with 92% accuracy vs manual expert ratings.',
-      'Built and deployed a Django REST API backend serving real-time computer vision inference to a React crop-analysis frontend.',
-      'Automated scientific report generation for precision agriculture, improving usability for end-users.',
+      'Designed and built a Django REST API backend for a crop-analysis platform, integrating real-time computer vision inference endpoints serving a React frontend.',
+      'Engineered Python image-processing pipelines estimating agricultural leaf nitrogen with 92% accuracy, and automated scientific report generation from the results.',
     ],
   },
 ]
@@ -55,7 +76,7 @@ export function ExperienceSection() {
       <Reveal>
         <ol className="relative border-l border-border pl-6 md:pl-8">
           {roles.map((role) => (
-            <li key={role.company} className="mb-10 last:mb-0">
+            <li key={`${role.company}-${role.period}`} className="mb-10 last:mb-0">
               <span
                 className="absolute -left-[7px] mt-1.5 size-3 rounded-full border-2 border-background bg-primary box-glow"
                 aria-hidden="true"
