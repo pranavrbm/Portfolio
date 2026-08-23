@@ -16,7 +16,7 @@ const roles = [
   {
     role: 'Software Engineering Intern (AI & Full-Stack)',
     company: 'Unique Hire',
-    period: 'Mar 2026 — Present',
+    period: 'May 2026 — Jun 2026',
     points: [
       'Engineering HireGuard — an end-to-end interview capture and analysis platform built on Next.js, FastAPI, and Supabase.',
       'Integrated LiveKit real-time video rooms and egress, using FFmpeg to extract audio automatically for downstream ML analysis.',

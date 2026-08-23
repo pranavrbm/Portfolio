@@ -11,8 +11,8 @@ const stats = [
 const domains = ['AI/ML & GenAI', 'Data Engineering', 'Full-Stack', 'DevOps & Cloud']
 
 const now = [
-  'HireGuard — AI interview analytics @ Unique Hire',
   'Multi-tenant HRMS platform @ TheDayHR',
+  'Open to new opportunities & collaborations',
 ]
 
 export function AboutSection() {

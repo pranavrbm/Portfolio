@@ -25,7 +25,6 @@
 ## ⚡ Now
 
 - 🏗️ Architecting a **multi-tenant HRMS** (Spring Boot + React) at TheDayHR
-- 🎙️ Engineering **HireGuard** — AI interview capture & analysis (LiveKit, Whisper, Groq LLMs) at Unique Hire
 - 🎓 Open to full-time roles & research collaborations
 
 ---
@@ -47,7 +46,7 @@
 - Architecting a secure, multi-tenant HRMS (Java, Spring Boot) with granular RBAC and JWT auth.
 - Engineered automated CI/CD pipelines (GitHub Actions) deploying to Linux/Nginx via SSH; built DLT-compliant SMS/email engines for OTP delivery.
 
-**Software Engineering Intern (AI & Full-Stack) — Unique Hire** `Mar 2026 – Present`
+**Software Engineering Intern (AI & Full-Stack) — Unique Hire** `May 2026 – Jun 2026`
 - Engineering **HireGuard**, an end-to-end interview capture & analysis platform (Next.js + FastAPI + Supabase).
 - Real-time media pipeline: LiveKit video rooms + FFmpeg audio extraction → dual-path transcription with local GPU models (Whisper Large v3 Turbo, Pyannote 3.1) and Groq APIs.
 - JSON-enforced LLM analytics engine (Groq LLaMA) evaluating candidate credibility and behavioral signals.
